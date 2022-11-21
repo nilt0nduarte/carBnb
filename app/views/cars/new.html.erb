@@ -10,6 +10,7 @@
       <%= f.input :brand, placeholder: 'Ferrari' %>
       <%= f.input :year, placeholder: '2021' %>
       <%= f.input :price_per_day, placeholder: '$ 99' %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>
     </div>
