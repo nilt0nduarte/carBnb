@@ -28,27 +28,24 @@
       </button>
     </div>
 
-
-
-
     <div class="d-flex justify-content-between">
       <div class="p-4 mt-2" style="width: 70%">
         <div class="title mb-4">
-          <h1 class="fw-bold"><%= "#{@car.brand} #{@car.model}" %></h1>
+          <h1 class="fw-bold"><%= "#{@car.brand.capitalize} #{@car.mode.capitalize}" %></h1>
         </div>
         <div class="specs">
           <ol class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-start">
               <div class="ms-2 me-auto">
                 <div class="fw-bold">Brand</div>
-                <%= @car.brand %>
+                <%= @car.brand.capitalize %>
               </div>
 
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-start">
               <div class="ms-2 me-auto">
                 <div class="fw-bold">Model</div>
-                <%= @car.model %>
+                <%= @car.model.capitalize %>
               </div>
 
             </li>
