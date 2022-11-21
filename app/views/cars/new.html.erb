@@ -1,0 +1,17 @@
+<%= render 'shared/navbar' %>
+
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-6 col-md-8">
+    <h1>New Car Informations</h1>
+
+  <%= simple_form_for @car do |f| %>
+    <%= f.input :model, placeholder: 'LaFerrari' %>
+    <%= f.input :brand, placeholder: 'Ferrari' %>
+    <%= f.input :year, placeholder: '2021' %>
+    <%= f.input :price_per_day, placeholder: '99$' %>
+    <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
+
+  </div>
+</div>
+<%= render 'shared/footer' %>
