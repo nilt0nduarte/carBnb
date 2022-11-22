@@ -5,18 +5,18 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
 
-        <%# DAR UM FOREACH PARA CADA FOTO  %>
-        <div class="carousel-item active">
-          <% @car.photos.first do %>
-            <%= cl_image_tag photo.key, class: "d-block w-100" %>
-           <% end %>
-        </div>
+            <%# DAR UM FOREACH PARA CADA FOTO  %>
+            <div class="carousel-item active">
+              <% @car.photos.first do %>
+                <%= cl_image_tag photo.key, class: "d-block w-100" %>
+              <% end %>
+            </div>
 
-        <div class="carousel-item">
-          <% @car.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, class: "d-block w-100" %>
-          <% end %>
-        </div>
+            <div class="carousel-item">
+              <% @car.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, class: "d-block w-100" %>
+              <% end %>
+            </div>
       </div>
         <%# TEM QUE VER SE EH POSSIVEL %>
         <%# PQ O CAROUSEL TEM UM DIV DE CLASSE ACTIVE TBM %>
