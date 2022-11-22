@@ -26,6 +26,10 @@ class CarsController < ApplicationController
     end
   end
 
+  def my_cars
+    @cars = policy_scope(Car).where(user: current_user)
+  end
+
   private
 
   def set_cars
