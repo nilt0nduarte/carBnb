@@ -1,8 +1,23 @@
 <div class="container mt-5">
 
-  <h1>Cars Page</h1>
   <div class="cards">
     <%# aqui tem que meter um each do p/ gerar os cards %>
+
+
+    <% @cars.each do |car| %>
+      <%= link_to car , class: 'hover' do %>
+      <div class="card-trip">
+        <img src="https://i.ytimg.com/vi/aVs-aLS2CNU/maxresdefault.jpg" />
+      <div class="card-trip-infos">
+      <div>
+        <h2><%= car.year %> <%= car.brand.capitalize %> <%= car.model.capitalize %></h2>
+        <p><%= car.description %></p>
+      </div>
+        <h2 class="card-trip-pricing">$<%= car.price_per_day %></h2>
+      </div>
+      </div>
+      <% end %>
+    <% end %>
 
     <div class="card-trip">
       <img src="https://www.topgear.com/sites/default/files/cars-car/image/2020/07/dsc09285.jpg" />

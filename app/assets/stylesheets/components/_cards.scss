@@ -2,8 +2,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+  border-radius: 10px;
 }
 
+.cards a {
+  text-decoration: none;
+  color: $gray;
+}
+
+.cards a:hover {
+  text-decoration: none;
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

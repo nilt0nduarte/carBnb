@@ -44,22 +44,31 @@
                 <div class="fw-bold">Brand</div>
                 <%= @car.brand.capitalize %>
               </div>
-
             </li>
+
             <li class="list-group-item d-flex justify-content-between align-items-start">
               <div class="ms-2 me-auto">
                 <div class="fw-bold">Model</div>
                 <%= @car.model.capitalize %>
               </div>
-
             </li>
+
             <li class="list-group-item d-flex justify-content-between align-items-start">
               <div class="ms-2 me-auto">
                 <div class="fw-bold">Year</div>
-                2020
+                <%= @car.year %>
               </div>
-
             </li>
+
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Description</div>
+                <%= @car.description %>
+              </div>
+            </li>
+
+          <%# MAYBE ADD 2 DESCRIPTIONS, A SHORT AND A LONG. SHORT FOR CARDS, LONG FOR SHOW %>
+
           </ol>
         </div>
       </div>

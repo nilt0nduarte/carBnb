@@ -3,10 +3,18 @@
     <div class="col-12 col-sm-6 col-md-8">
       <h1>New Car Informations</h1>
 
+
+
+    <%#= simple_form_for [@car, @user] do |f| %>
+    <%# talvez precise da linha acima pra vincular ao usuario %>
+
     <%= simple_form_for @car do |f| %>
-      <%= f.input :model, placeholder: 'LaFerrari' %>
       <%= f.input :brand, placeholder: 'Ferrari' %>
-      <%= f.input :year, placeholder: '2021' %>
+      <%= f.input :model, placeholder: 'LaFerrari' %>
+      <%= f.input :year, collection: 1990..2023, placeholder: '2021' %>
+      <%= f.input :description, placeholder: 'Amazingly luxury sports car for a nice day at the beach' %>
+      <%# MAYBE ADD 2 DESCRIPTIONS, A SHORT AND A LONG. SHORT FOR CARDS, LONG FOR SHOW %>
+      <%# f.input :long_description, placeholder: 'Please write at least 240 characters' %>
       <%= f.input :price_per_day, placeholder: '$ 99' %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.button :submit, class: 'btn btn-primary' %>
