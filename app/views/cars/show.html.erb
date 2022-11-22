@@ -1,13 +1,17 @@
-<div class="bg-white">
-  <%= render 'shared/navbar' %>
-
-
-  <div class="container bg-">
+  <div class="container mt-5">
 
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
 
         <%# DAR UM FOREACH PARA CADA FOTO  %>
+        <%# @car.photos.each do |photo| %>
+          <%#= cl_image_tag photo.key, class: "d-block w-100" %>
+        <%# end %>
+
+        <%# TEM QUE VER SE EH POSSIVEL %>
+        <%# PQ O CAROUSEL TEM UM DIV DE CLASSE ACTIVE TBM %>
+        <%# MAS O FOR EACH EH AQUELE ALI. %>
+
         <div class="carousel-item active">
           <img src="https://www.topgear.com/sites/default/files/cars-car/image/2020/07/dsc09285.jpg" class="d-block w-100" alt="...">
         </div>
@@ -31,7 +35,7 @@
     <div class="d-flex justify-content-between">
       <div class="p-4 mt-2" style="width: 70%">
         <div class="title mb-4">
-          <h1 class="fw-bold"><%= "#{@car.brand.capitalize} #{@car.mode.capitalize}" %></h1>
+          <h1 class="fw-bold"><%= "#{@car.brand.capitalize} #{@car.model.capitalize}" %></h1>
         </div>
         <div class="specs">
           <ol class="list-group">
@@ -77,8 +81,4 @@
         </div>
       </div>
     </div>
-
   </div>
-
-  <%= render 'shared/footer' %>
-</div>

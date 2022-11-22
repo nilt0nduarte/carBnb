@@ -1,8 +1,5 @@
-<%= render 'shared/navbar' %>
-
 <div class="container mt-5">
   <div class="row justify-content-center">
-
     <div class="col-12 col-sm-6 col-md-8">
       <h2>Log in</h2>
       <%= simple_form_for(resource, as: resource, url: session_path(resource), data: {turbo: false}) do |f| %>
@@ -23,10 +20,5 @@
       <% end %>
       <%= render "devise/shared/links" %>
     </div>
-
-
-    </div>
-
+   </div>
 </div>
-
-<%= render 'shared/footer' %>
