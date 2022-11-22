@@ -7,7 +7,7 @@
     <% @cars.each do |car| %>
       <%= link_to car , class: 'hover' do %>
       <div class="card-trip">
-        <img src="https://i.ytimg.com/vi/aVs-aLS2CNU/maxresdefault.jpg" />
+        <img src="<%= cl_image_path car.photos.first.key %>" />
       <div class="card-trip-infos">
       <div>
         <h2><%= car.year %> <%= car.brand.capitalize %> <%= car.model.capitalize %></h2>
@@ -24,6 +24,7 @@
       <div class="card-trip-infos">
         <div>
           <h2>2022 Ferrari SF90 Stradale</h2>
+
           <p>Short description here!</p>
         </div>
         <h2 class="card-trip-pricing">£99.99</h2>
