@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_car, except: :destroy
 
   def new
     @booking = Booking.new
@@ -7,9 +8,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @car = Car.find(params[:id])
-    @booking.car = @car
-    @booking.user = current_user
+    @booking.car = @booking
+    # @booking.user = current_user
     authorize @booking
     if @booking.save
       redirect_to car_path(@car)
@@ -18,11 +18,15 @@ class BookingsController < ApplicationController
     end
   end
 
-  # private
+  private
 
-  #   def booking_params
-  #     params.require(:booking).permit()
-  #   end
+  def set_car
+    @car = Car.find(params[:car_id])
+  end
+
+    def booking_params
+      params.require(:booking).permit(:start_date, :end_date)
+    end
 
 
 end
