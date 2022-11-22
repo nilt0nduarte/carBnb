@@ -1,5 +1,7 @@
   <div class="container mt-5">
-
+    <% if policy(@car).edit? %>
+      <%= link_to "Edit this car", edit_car_path(@car) %> |
+    <% end %>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
 

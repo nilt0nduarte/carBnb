@@ -14,6 +14,10 @@ class CarPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    return update?
+  end
+
   def update?
     record.user == user
   end
@@ -21,5 +25,4 @@ class CarPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
-
 end

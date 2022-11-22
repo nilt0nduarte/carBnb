@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_cars, only: [:show, :destroy]
+  before_action :set_cars, only: [:show, :edit, :update, :destroy]
 
   def index
     @cars = policy_scope(Car)
@@ -28,6 +28,20 @@ class CarsController < ApplicationController
 
   def my_cars
     @cars = policy_scope(Car).where(user: current_user)
+  def edit
+    authorize @car
+  end
+
+  def update
+    authorize @car
+    @car.update(car_params)
+    redirect_to car_path(@car), notice: "car was successfully updated"
+  end
+
+  def destroy
+    authorize @car
+    @car.destroy
+    redirect_to cars_path, status: :see_other #(se pa tem que adicionar que eh o carro DO usuario)
   end
 
   private
@@ -36,10 +50,6 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
   end
 
-  # def destroy
-  #   @car.destroy
-  #   redirect_to cars_path, status: :see_other (se pa tem que adicionar que eh o carro DO usuario)
-  # end
 
   def car_params
     params.require(:car).permit(:model, :brand, :year, :price_per_day, :description, photos: [])
