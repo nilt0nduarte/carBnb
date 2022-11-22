@@ -26,6 +26,10 @@ class CarsController < ApplicationController
     end
   end
 
+  def my_cars
+    @cars = policy_scope(Car).where(user: current_user)
+  end
+
   def edit
     authorize @car
   end
@@ -39,7 +43,7 @@ class CarsController < ApplicationController
   def destroy
     authorize @car
     @car.destroy
-    redirect_to cars_path, status: :see_other #(se pa tem que adicionar que eh o carro DO usuario)
+    redirect_to my_cars_cars_path, status: :see_other #(se pa tem que adicionar que eh o carro DO usuario)
   end
 
   private
@@ -47,7 +51,6 @@ class CarsController < ApplicationController
   def set_cars
     @car = Car.find(params[:id])
   end
-
 
   def car_params
     params.require(:car).permit(:model, :brand, :year, :price_per_day, :description, photos: [])
