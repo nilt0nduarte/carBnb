@@ -4,14 +4,14 @@
     <% @cars.each do |car| %>
       <%= link_to car , class: 'hover' do %>
       <div class="card-trip">
-        <img src="<%= cl_image_path car.photos.first.key %>" />
-      <div class="card-trip-infos">
-      <div>
-        <h2><%= car.year %> <%= car.brand.capitalize %> <%= car.model.capitalize %></h2>
-        <p><%= car.description %></p>
-      </div>
-        <h2 class="card-trip-pricing">$<%= car.price_per_day %></h2>
-      </div>
+          <img src="<%= cl_image_path car.photos.first.key %>" />
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= car.year %> <%= car.brand.capitalize %> <%= car.model.capitalize %></h2>
+            <p><%= car.description %></p>
+          </div>
+          <h2 class="card-trip-pricing">$<%= car.price_per_day %></h2>
+        </div>
       </div>
       <% end %>
     <% end %>
