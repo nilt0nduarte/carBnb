@@ -3,18 +3,22 @@ class CarsController < ApplicationController
   before_action :set_cars, only: [:show, :destroy]
 
   def index
-    @cars = Car.all
+    @cars = policy_scope(Car)
   end
 
   def new
     @car = Car.new
+    authorize @car
   end
 
   def show
+    authorize @car
   end
 
   def create
     @car = Car.new(car_params)
+    @car.user = current_user
+    authorize @car
     if @car.save
       redirect_to car_path(@car), notice: "Car was successfully created."
     else
@@ -29,7 +33,7 @@ class CarsController < ApplicationController
   end
 
   # def destroy
-  #   @list.destroy
+  #   @car.destroy
   #   redirect_to cars_path, status: :see_other (se pa tem que adicionar que eh o carro DO usuario)
   # end
 
