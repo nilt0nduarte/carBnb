@@ -1,0 +1,20 @@
+
+<div class="container mt-5 ">
+  <div class="d-flex justify-content-between">
+    <h1 class="fw-bold mb-3">My Cars</h1>
+    <%= link_to 'Add a car', new_car_path, class: 'btn btn-primary' %>
+  </div>
+  <% @cars.each do |car| %>
+    <div class="card-product rounded-4 mb-4">
+      <img src="https://www.topgear.com/sites/default/files/cars-car/image/2020/07/dsc09285.jpg" />
+        <div class="card-product-infos">
+          <div class="card-product-content-info">
+            <h2><%= "#{car.brand.capitalize} #{car.model.capitalize}" %></h2>
+            <p><%= car.description %></p>
+          </div>
+            <%= link_to 'Edit', edit_car_path(car), class: 'btn btn-primary' %>
+        </div>
+    </div>
+  <% end %>
+
+</div>
