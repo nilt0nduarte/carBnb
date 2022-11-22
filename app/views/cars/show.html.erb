@@ -5,16 +5,24 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
 
-        <%# DAR UM FOREACH PARA CADA FOTO  %>
-        <%# @car.photos.each do |photo| %>
-          <%#= cl_image_tag photo.key, class: "d-block w-100" %>
-        <%# end %>
+            <%# DAR UM FOREACH PARA CADA FOTO  %>
+            <div class="carousel-item active">
+              <% @car.photos.first do %>
+                <%= cl_image_tag photo.key, class: "d-block w-100" %>
+              <% end %>
+            </div>
 
+            <div class="carousel-item">
+              <% @car.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, class: "d-block w-100" %>
+              <% end %>
+            </div>
+      </div>
         <%# TEM QUE VER SE EH POSSIVEL %>
         <%# PQ O CAROUSEL TEM UM DIV DE CLASSE ACTIVE TBM %>
         <%# MAS O FOR EACH EH AQUELE ALI. %>
 
-        <div class="carousel-item active">
+        <%# <div class="carousel-item active">
           <img src="https://www.topgear.com/sites/default/files/cars-car/image/2020/07/dsc09285.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
@@ -22,8 +30,8 @@
         </div>
         <div class="carousel-item">
           <img src="https://www.topgear.com/sites/default/files/cars-car/image/2020/07/dsc09285.jpg" class="d-block w-100" alt="...">
-        </div>
-      </div>
+        </div> %>
+
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
