@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-6 col-md-8">
-      <h1> Car Informations</h1>
+      <h1>Edit Car Informations</h1>
 
 
 
@@ -19,6 +19,8 @@
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>
+
+    <%= button_to "Delete this car", @car, method: :delete if policy(@car).destroy? %>
     </div>
   </div>
 </div>
