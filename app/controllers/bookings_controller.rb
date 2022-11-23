@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_car, except: [:destroy, :edit, :update, :my_bookings]
+  before_action :set_car, except: [:destroy, :edit, :update, :my_bookings, :my_reservations]
 
   def index
     @bookings = policy_scope(Booking)
@@ -15,6 +15,12 @@ class BookingsController < ApplicationController
     authorize @bookings
   end
 
+  def my_reservations
+    @bookings = policy_scope(Booking).where(user: current_user)
+    authorize @bookings
+  end
+
+
   def create
     @booking = Booking.new(booking_params)
     @booking.car = @car
@@ -23,7 +29,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to car_path(@car)
     else
-      render 'cars/show', status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

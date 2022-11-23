@@ -8,5 +8,7 @@ class Car < ApplicationRecord
   validates :model, presence: true
   validates :brand, presence: true
   validates :year, presence: true
+  validates :description, length: { maximum: 40 }
   validates :price_per_day, presence: true
+  validates :photos, presence: true
 end

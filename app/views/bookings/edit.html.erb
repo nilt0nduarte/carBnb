@@ -1,12 +1,7 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-6 col-md-8">
-      <h1>Edit Booking Informations</h1>
-
-
-
-
-    <%= simple_form_for @booking do |f| %>
+      <%= simple_form_for @booking do |f| %>
       <%= f.input :start_date %>
       <%= f.input :end_date %>
       <%= f.button :submit, class: 'btn btn-primary' %>

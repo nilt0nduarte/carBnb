@@ -22,6 +22,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Cars", my_cars_cars_path, class: "dropdown-item" %>
               <%= link_to "My Bookings", my_bookings_bookings_path, class: "dropdown-item" %>
+              <%= link_to "My Reservations", my_reservations_bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>

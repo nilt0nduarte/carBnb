@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :edit, :update] do
     collection do
       get :my_bookings
+      get :my_reservations
     end
   end
   # Defines the root path route ("/")
