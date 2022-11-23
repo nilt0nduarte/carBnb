@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_car, except: [:destroy, :my_bookings]
+  before_action :set_car, except: [:destroy, :edit, :update, :my_bookings]
 
   def index
     @bookings = policy_scope(Booking)
@@ -27,6 +27,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.update!(booking_params)
+    redirect_to my_bookings_bookings_path, notice: "booking was successfully changed."
+  end
   private
 
   def set_car
