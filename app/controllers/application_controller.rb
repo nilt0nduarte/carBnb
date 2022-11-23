@@ -5,10 +5,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number])
-
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number, :photo])
     # For additional in app/views/devise/registrations/edit.html.erb
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone_number])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone_number, :photo])
   end
 
   include Pundit::Authorization
@@ -16,9 +15,6 @@ class ApplicationController < ActionController::Base
   # Pundit: allow-list approach
   after_action :verify_authorized, except: [:index, :my_cars], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [:index, :my_cars], unless: :skip_pundit?
-
-
-
 
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

@@ -18,6 +18,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def my_reservations?
+    true
+  end
+
   def edit?
     return update?
   end
