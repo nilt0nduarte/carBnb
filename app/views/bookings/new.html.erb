@@ -1,16 +1,18 @@
+<% require 'date' %>
+
 <div class="container mt-5">
-<div class="row justify-content-center">
-    <div class="col-12 col-sm-6 col-md-8">
-      <h1><%= @car.brand %> <%= @car.model %></h1>
-      <h3>Price: $ <%= @car.price_per_day %></h3>
-      <%= simple_form_for [@car, @booking] do |f| %>
-                <%= f.input :start_date, as: :date, html5: true %>
-                <%= f.input :end_date, as: :date, html5: true %>
-                 <h3>Total: $ (adicionar o JS aqui?)</h3>
-                <%= f.submit  class: 'btn btn-success' %>
-      <% end %>
-
-</div>
-
-</div>
+  <div class="row justify-content-center">
+      <div class="col-12 col-sm-6 col-md-8">
+        <h1><%= @car.brand %> <%= @car.model %></h1>
+        <h3>Price: $ <%= @car.price_per_day %></h3>
+        <%= simple_form_for [@car, @booking] do |f| %>
+                  <%= f.input :start_date, as: :date,
+                                           html5: true %>
+                  <%= f.input :end_date, as: :date,
+                                         html5: true %>
+                  <h3>Total: $ (adicionar o JS aqui?)</h3>
+                  <%= f.submit  class: 'btn btn-success' %>
+        <% end %>
+      </div>
+  </div>
 </div>
