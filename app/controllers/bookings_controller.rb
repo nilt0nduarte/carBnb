@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_car, except: [:destroy, :my_bookings]
+  before_action :set_booking, only: :destroy
 
   def index
     @bookings = policy_scope(Booking)
@@ -27,7 +28,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize @booking
+    @booking.destroy
+    redirect_to my_bookings_bookings_path, status: :see_other
+  end
+
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def set_car
     @car = Car.find(params[:car_id])

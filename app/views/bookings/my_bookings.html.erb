@@ -4,5 +4,7 @@
   <% @bookings.each do |booking| %>
   <%= booking.start_date %>
   <%= booking.user_id %>
+  <%= button_to "Delete this booking", booking, method: :delete if policy(@bookings).destroy? %>
   <% end %>
+
 </div>
