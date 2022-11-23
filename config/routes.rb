@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "cars#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :cars do
-    resources :bookings, only: [:create, :new]
+    resources :bookings, only: [:create, :new, :delete]
 
     collection do
       get :my_cars
