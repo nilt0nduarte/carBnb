@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :bookings, only: :index do
+  resources :bookings, only: [:index, :edit, :update] do
     collection do
       get :my_bookings
     end
