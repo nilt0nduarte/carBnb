@@ -1,8 +1,22 @@
 <div class="container mt-5">
   <h1>My Bookings</h1>
 
-  <% @bookings.each do |booking| %>
-  <%= booking.start_date %>
-  <%= booking.user_id %>
-  <% end %>
+
+        <% @bookings.each do |booking| %>
+        <div class="card-booking mb-3">
+          <img src="<%=cl_image_path booking.car.photos.first.key %>"" />
+          <div class="card-booking-infos">
+           <div class="card-booking-content-info">
+            <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
+            <p><%= booking.car.brand %> <%= booking.car.model %></p>
+            <p>Total Price: <strong>$ (fazer a multiplicacao) </strong></p>
+            <p>Duration: <strong>X</strong> days. (Do the math) </p>
+            <p>From: <%= booking.start_date %> to <%= booking.end_date %></p>
+            </div>
+            <%# raise %>
+            <%= link_to 'Edit', root_path, class: 'btn btn-primary' %>
+          </div>
+
+        </div>
+        <% end %>
 </div>

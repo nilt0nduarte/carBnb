@@ -1,8 +1,8 @@
 <div class="container mt-5">
 
 <%= simple_form_for [@car, @booking] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
+          <%= f.input :start_date, as: :date, html5: true %>
+          <%= f.input :end_date, as: :date, html5: true %>
           <%= f.submit  class: 'btn btn-success' %>
 <% end %>
 
