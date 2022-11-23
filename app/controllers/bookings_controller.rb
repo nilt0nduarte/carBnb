@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_car, except: [:destroy, :edit, :update, :my_bookings, :my_reservations]
-
+  before_action :set_car, except: %i[destroy edit update my_bookings my_reservations]
 
   def index
     @bookings = policy_scope(Booking)
@@ -20,7 +19,6 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).where(user: current_user)
     authorize @bookings
   end
-
 
   def create
     @booking = Booking.new(booking_params)
@@ -62,5 +60,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
-
 end

@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_cars, only: [:show, :edit, :update, :destroy]
+  before_action :set_cars, only: %i[show edit update destroy]
 
   def index
     @cars = policy_scope(Car)
@@ -44,7 +44,8 @@ class CarsController < ApplicationController
   def destroy
     authorize @car
     @car.destroy
-    redirect_to my_cars_cars_path, status: :see_other #(se pa tem que adicionar que eh o carro DO usuario)
+    redirect_to my_cars_cars_path, status: :see_other
+    # (se pa tem que adicionar que eh o carro DO usuario)
   end
 
   private
