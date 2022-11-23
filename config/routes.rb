@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   end
 
+  resources :bookings, only: :destroy
+
   resources :bookings, only: [:index, :edit, :update] do
     collection do
       get :my_bookings
