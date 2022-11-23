@@ -1,5 +1,6 @@
 <div class="container mt-5">
   <h1>My Reservations</h1>
+  <hr>
 
 
         <% @bookings.each do |booking| %>
@@ -15,7 +16,9 @@
 
             </div>
             <%# raise %>
+            <div>
             <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary' %>
+            </div>
           </div>
 
         </div>

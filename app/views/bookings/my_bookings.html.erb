@@ -1,5 +1,6 @@
 <div class="container mt-5">
   <h1>My Bookings</h1>
+  <hr>
 
         <% @bookings.each do |booking| %>
         <div class="card-booking mb-3">
@@ -13,8 +14,10 @@
             <p>From: <%= booking.start_date %> to <%= booking.end_date %></p>
 
             </div>
+            <div>
             <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary' %>
-            <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to "Delete", booking_path(booking), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            </div>
           </div>
 
         </div>
