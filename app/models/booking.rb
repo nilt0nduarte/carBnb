@@ -9,15 +9,20 @@ class Booking < ApplicationRecord
                        comparison: { greater_than: :start_date, message: "can't book a car in the past." }
 
 
+  validate :other_booking_overlap
+
   def other_booking_overlap
-  # run this validation if the other ones did pass
-  if errors.blank?
-    other_bookings = restaurant.bookings
-    overlapping_bookings = other_bookings.select do |other_booking|
-      period.overlaps?(other_booking.period)
+    # run this validation if the other ones did pass
+    if errors.blank?
+      other_bookings = car.bookings
+      overlapping_bookings = other_bookings.select do |other_booking|
+        # period.overlaps?(other_booking.period)
+        (other_booking.start_date..other_booking.end_date).to_a.include? self.start_date
+      end
+      is_overlapping = !overlapping_bookings.empty?
+      errors.add(:start_date, "Picked date is not available") if is_overlapping
     end
-    is_overlapping = !overlapping_bookings.empty?
-    errors.add(:base, "Picked date is not available") if is_overlapping
   end
-end
+
+
 end

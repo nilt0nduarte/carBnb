@@ -5,9 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :photo
-  
+
   has_many :bookings, through: :cars
   has_many :cars, dependent: :destroy
+  has_many :bookings_as_owner, through: :cars, source: :bookings
 
 
   validates :first_name, presence: true, length: { in: 2..10 }
