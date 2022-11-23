@@ -1,10 +1,18 @@
 <div class="container mt-5">
   <h1>My Bookings</h1>
 
+  <ul>
   <% @bookings.each do |booking| %>
-  <%= booking.start_date %>
-  <%= booking.user_id %>
-  <%= button_to "Delete this booking", booking, method: :delete if policy(@bookings).destroy? %>
+    <li>
+    <%= booking.car.brand.capitalize %>
+    <%= booking.car.model.capitalize %>
+    From: <%= booking.start_date %>
+    To: <%= booking.end_date %>
+    <%= link_to 'Edit', edit_booking_path(booking) %>
+    <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </li>
   <% end %>
+  </ul>
+
 
 </div>
