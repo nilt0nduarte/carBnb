@@ -1,0 +1,8 @@
+<div class="container mt-5">
+  <h1>My Bookings</h1>
+
+  <% @bookings.each do |booking| %>
+  <%= booking.start_date %>
+  <%= booking.user_id %>
+  <% end %>
+</div>
