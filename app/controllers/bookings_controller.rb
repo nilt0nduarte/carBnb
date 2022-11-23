@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
 
   def my_bookings
     @bookings = policy_scope(Booking).where(user: current_user)
+    authorize @bookings
   end
 
   def create
