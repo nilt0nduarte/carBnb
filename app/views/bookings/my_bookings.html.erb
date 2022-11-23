@@ -9,12 +9,13 @@
            <div class="card-booking-content-info">
             <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
             <p><%= booking.car.brand %> <%= booking.car.model %></p>
-            <p>Total Price: <strong>$ (fazer a multiplicacao) </strong></p>
-            <p>Duration: <strong>X</strong> days. (Do the math) </p>
+            <p>Total Price: <strong>$ </strong><%= ((booking.end_date - booking.start_date).to_i) * booking.car.price_per_day %> </p>
+            <p>Duration: <strong><%= (booking.end_date - booking.start_date).to_i %></strong> days.</p>
             <p>From: <%= booking.start_date %> to <%= booking.end_date %></p>
+
             </div>
             <%# raise %>
-            <%= link_to 'Edit', root_path, class: 'btn btn-primary' %>
+            <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary' %>
           </div>
 
         </div>

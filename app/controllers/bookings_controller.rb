@@ -15,6 +15,10 @@ class BookingsController < ApplicationController
     authorize @bookings
   end
 
+  # def my_reservations
+  # end
+
+
   def create
     @booking = Booking.new(booking_params)
     @booking.car = @car
