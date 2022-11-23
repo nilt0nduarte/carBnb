@@ -1,15 +1,23 @@
 class BookingsController < ApplicationController
-  before_action :set_car, except: :destroy
+  before_action :set_car, except: [:destroy, :my_bookings]
+
+  def index
+    @bookings = policy_scope(Booking)
+  end
 
   def new
     @booking = Booking.new
     authorize @booking
   end
 
+  def my_bookings
+    @bookings = policy_scope(Booking).where(user: current_user)
+  end
+
   def create
     @booking = Booking.new(booking_params)
-    @booking.car = @booking
-    # @booking.user = current_user
+    @booking.car = @car
+    @booking.user = current_user
     authorize @booking
     if @booking.save
       redirect_to car_path(@car)
