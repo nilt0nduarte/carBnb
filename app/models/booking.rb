@@ -32,7 +32,7 @@ class Booking < ApplicationRecord
         (other_booking.start_date..other_booking.end_date).to_a.include? self.end_date
       end
       is_overlapping = !overlapping_bookings.empty?
-      errors.add(:end_date, "Picked date is not available") if is_overlapping
+      errors.add(:end_date, "Picked date is not available, please choose another!") if is_overlapping
     end
   end
 end
