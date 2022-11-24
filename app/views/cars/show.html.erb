@@ -56,18 +56,16 @@
                 <%= @car.description %>
               </div>
             </li>
-
           <%# MAYBE ADD 2 DESCRIPTIONS, A SHORT AND A LONG. SHORT FOR CARDS, LONG FOR SHOW %>
-
           </ol>
+
         </div>
       </div>
-      <div class="card rounded-4 mt-4" style="width: 30%;">
+      <div class="card rounded-4 mt-4" style="width: auto">
         <div class="card-body">
           <h5 class="card-title"><%= @car.brand.capitalize %> <%= @car.model.capitalize %></h5>
-
           <h6 class="card-subtitle mb-2 text-muted"> $ <%=  @car.price_per_day %> per day</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p class="card-text">(Implementar e colocar @car.long_description aqui)</p>
 
           <div class="d-flex justify-content-center">
             <%= link_to "Rent this car", new_car_booking_path(@car), class: "btn btn-primary rounded-4" %>
