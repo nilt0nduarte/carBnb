@@ -13,14 +13,13 @@ class CarsController < ApplicationController
 
   def show
     @booking = Booking.new
-    @markers = @car.geocoded.map do |car|
-      {
-        lat: car.latitude,
-        lng: car.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {car: car})
+    @markers = {
+        lat: @car.geocode[0],
+        lng: @car.geocode[1],
+        info_window: render_to_string(partial: "info_window", locals: {car: @car})
       }
-    end
-    authorize @car
+
+        authorize @car
   end
 
   def create
