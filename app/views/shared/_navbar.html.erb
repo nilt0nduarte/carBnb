@@ -18,7 +18,7 @@
             <%# < %= link_to "Messages", "#", class: "nav-link" % > %>
           <%# </li> %>
           <li class="nav-item dropdown">
-            <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "#{cl_image_path current_user.photo.key}", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Cars", my_cars_cars_path, class: "dropdown-item" %>
               <%= link_to "My Bookings", my_bookings_bookings_path, class: "dropdown-item" %>
