@@ -14,12 +14,11 @@ class CarsController < ApplicationController
   def show
     @booking = Booking.new
     @markers = {
-        lat: @car.geocode[0],
-        lng: @car.geocode[1],
-        info_window: render_to_string(partial: "info_window", locals: {car: @car})
-      }
-
-        authorize @car
+      lat: @car.geocode[0],
+      lng: @car.geocode[1],
+      info_window: render_to_string(partial: "info_window", locals: { car: @car })
+    }
+    authorize @car
   end
 
   def create
@@ -51,7 +50,6 @@ class CarsController < ApplicationController
     authorize @car
     @car.destroy
     redirect_to my_cars_cars_path, status: :see_other
-    # (se pa tem que adicionar que eh o carro DO usuario)
   end
 
   private
@@ -61,6 +59,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:model, :brand, :year, :price_per_day, :description, :address, :longdescription, photos: [])
+    params.require(:car).permit(:model, :brand, :year, :price_per_day,
+                                :description, :address, :longdescription, photos: [])
   end
 end

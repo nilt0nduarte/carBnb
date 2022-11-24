@@ -3,11 +3,6 @@
     <div class="col-12 col-sm-6 col-md-8">
       <h1> Car Informations</h1>
 
-
-
-    <%#= simple_form_for [@car, @user] do |f| %>
-    <%# talvez precise da linha acima pra vincular ao usuario %>
-
     <%= simple_form_for @car do |f| %>
       <%= f.input :brand, placeholder: 'Ferrari' %>
       <%= f.input :model, placeholder: 'LaFerrari' %>
