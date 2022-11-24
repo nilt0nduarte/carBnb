@@ -10,6 +10,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+<li class="nav-item active">
+      <%= form_with url: cars_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control" %>
+        <%= submit_tag "Search", class: "btn btn-outline-secondary" %>
+      <% end %>
+</li>
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
