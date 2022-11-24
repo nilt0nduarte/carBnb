@@ -18,6 +18,7 @@ class CarsController < ApplicationController
       lng: @car.geocode[1],
       info_window: render_to_string(partial: "info_window", locals: { car: @car })
     }
+    # raise
     authorize @car
   end
 
