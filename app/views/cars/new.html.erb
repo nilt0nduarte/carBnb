@@ -12,10 +12,12 @@
       <%= f.input :brand, placeholder: 'Ferrari' %>
       <%= f.input :model, placeholder: 'LaFerrari' %>
       <%= f.input :year, collection: 1990..2023, placeholder: '2021' %>
-      <%= f.input :description, placeholder: 'Amazingly luxury sports car for a nice day at the beach' %>
-      <%# MAYBE ADD 2 DESCRIPTIONS, A SHORT AND A LONG. SHORT FOR CARDS, LONG FOR SHOW %>
-      <%# f.input :long_description, placeholder: 'Please write at least 240 characters' %>
+      <%= f.input :description, label: 'Short description', placeholder: 'A short description for your car' %>
+      <%= f.input :longdescription, label: 'Details for your car',placeholder: 'A longer description for you car' %>
       <%= f.input :price_per_day, placeholder: '$ 99' %>
+      <%= f.input :address, label: "Where is the car located at?",
+                            input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                            wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>
