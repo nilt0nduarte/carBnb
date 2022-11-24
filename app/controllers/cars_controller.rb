@@ -3,7 +3,11 @@ class CarsController < ApplicationController
   before_action :set_cars, only: %i[show edit update destroy]
 
   def index
-    @cars = policy_scope(Car)
+    if params[:query].present?
+      @cars = policy_scope(Car).global_search(params[:query])
+    else
+      @cars = policy_scope(Car)
+    end
   end
 
   def new

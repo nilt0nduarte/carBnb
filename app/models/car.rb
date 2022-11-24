@@ -13,4 +13,11 @@ class Car < ApplicationRecord
   validates :description, length: { maximum: 40 }
   validates :price_per_day, presence: true
   validates :photos, presence: true, on: :create
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+                  against: %i[model brand address],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

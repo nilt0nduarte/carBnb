@@ -4,6 +4,10 @@ class CarPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+
+    def global_search
+      scope.all
+    end
   end
 
   def show?
