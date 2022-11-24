@@ -2,24 +2,19 @@
   <h1>My Reservations</h1>
   <hr>
 
-
         <% @bookings.each do |booking| %>
-        <div class="card-booking mb-3">
-          <img src="<%=cl_image_path booking.car.photos.first.key %>"" />
-          <div class="card-booking-infos">
-           <div class="card-booking-content-info">
-            <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
-            <p><%= booking.car.brand %> <%= booking.car.model %></p>
-            <p>Total Price: <strong>$ </strong><%= ((booking.end_date - booking.start_date).to_i) * booking.car.price_per_day %> </p>
-            <p>Duration: <strong><%= (booking.end_date - booking.start_date).to_i %></strong> days.</p>
-            <p>From: <%= booking.start_date %> to <%= booking.end_date %></p>
-
-            </div>
-            <div>
-            <%= link_to 'Edit', edit_booking_path(booking), class: 'btn btn-primary' %>
+          <div class="card-booking rounded-4 mb-3">
+            <img src="<%=cl_image_path booking.car.photos.first.key %>"" />
+            <div class="card-booking-infos">
+              <div class="card-booking-content-info">
+                <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
+                <h2><%= booking.car.brand %> <%= booking.car.model %></h2>
+                <p>Total Price: <strong>$ </strong><%= ((booking.end_date - booking.start_date).to_i) * booking.car.price_per_day %> </p>
+                <p>Duration: <strong><%= (booking.end_date - booking.start_date).to_i %></strong> days.</p>
+                <p>From: <%= booking.start_date %> to <%= booking.end_date %></p>
+              </div>
             </div>
           </div>
-
-        </div>
         <% end %>
+
 </div>
