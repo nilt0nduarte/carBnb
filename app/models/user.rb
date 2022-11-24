@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :cars, dependent: :destroy
   has_many :bookings_as_owner, through: :cars, source: :bookings
 
-
   validates :first_name, presence: true, length: { in: 2..10 }
   validates :last_name, presence: true, length: { in: 2..20 }
   validates :phone_number, presence: true, length: { in: 5..10 }
