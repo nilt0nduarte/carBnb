@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_cars, only: [:show, :edit, :update, :destroy]
+  before_action :set_cars, only: %i[show edit update destroy]
 
   def index
     @cars = policy_scope(Car)
@@ -13,6 +13,12 @@ class CarsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers = {
+      lat: @car.geocode[0],
+      lng: @car.geocode[1],
+      info_window: render_to_string(partial: "info_window", locals: { car: @car })
+    }
+    # raise
     authorize @car
   end
 
@@ -44,7 +50,7 @@ class CarsController < ApplicationController
   def destroy
     authorize @car
     @car.destroy
-    redirect_to my_cars_cars_path, status: :see_other #(se pa tem que adicionar que eh o carro DO usuario)
+    redirect_to my_cars_cars_path, status: :see_other
   end
 
   private
@@ -54,6 +60,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:model, :brand, :year, :price_per_day, :description, photos: [])
+    params.require(:car).permit(:model, :brand, :year, :price_per_day,
+                                :description, :address, :longdescription, photos: [])
   end
 end

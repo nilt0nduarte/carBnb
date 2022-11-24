@@ -8,7 +8,6 @@ class Booking < ApplicationRecord
   validates :end_date, presence: true,
                        comparison: { greater_than: :start_date, message: "can't book a car in the past." }
 
-
   validate :other_booking_overlap_start_date, :other_booking_overlap_end_date
 
   def other_booking_overlap_start_date
@@ -36,6 +35,4 @@ class Booking < ApplicationRecord
       errors.add(:end_date, "Picked date is not available") if is_overlapping
     end
   end
-
-
 end
