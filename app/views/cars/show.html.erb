@@ -1,8 +1,5 @@
   <div class="container mt-5">
-    <% if policy(@car).edit? %>
-      <%= link_to "Edit this car", edit_car_path(@car), class: 'btn btn-info' %>
-      <hr>
-    <% end %>
+
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
 
@@ -68,11 +65,13 @@
           <h6 class="card-subtitle mb-2 text-muted"> $ <%=  @car.price_per_day %> per day</h6>
           <p class="card-text"><%= @car.longdescription %></p>
 
-          <%# BOTAO %>
-          <%# IF USER = OWNER, EDIT %>
-          <%# ELSE RENT %>
           <div class="d-flex justify-content-center">
+          <% if @car.user == current_user %>
+            <%= link_to "Edit this car", edit_car_path(@car), class: 'btn btn-info' %>
+          <% else %>
             <%= link_to "Rent this car", new_car_booking_path(@car), class: "btn btn-primary rounded-4" %>
+          <% end %>
+
           </div>
         </div>
       </div>
