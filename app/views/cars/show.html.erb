@@ -22,30 +22,10 @@
     <div class="d-flex justify-content-between">
       <div class="p-4 mt-2" style="width: 70%">
         <div class="title mb-4">
-          <h1 class="fw-bold"><%= "#{@car.brand.capitalize} #{@car.model.capitalize}" %></h1>
+          <h1 class="fw-bold"><%= "#{@car.year} #{@car.brand.capitalize} #{@car.model.capitalize}" %></h1>
         </div>
         <div class="specs">
           <ol class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold">Brand</div>
-                <%= @car.brand.capitalize %>
-              </div>
-            </li>
-
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold">Model</div>
-                <%= @car.model.capitalize %>
-              </div>
-            </li>
-
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold">Year</div>
-                <%= @car.year %>
-              </div>
-            </li>
 
             <li class="list-group-item d-flex justify-content-between align-items-start">
               <div class="ms-2 me-auto">
@@ -53,19 +33,27 @@
                 <%= @car.description %>
               </div>
             </li>
-          </ol>
 
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">Address</div>
+                <%= @car.address %>
+              </div>
+            </li>
+
+          </ol>
         </div>
       </div>
 
       <%# CARD DO RENT A CAR %>
-      <div class="card rounded-4 mt-4" style="width: auto">
+      <div class="card mt-4" style="width: 30%">
         <div class="card-body">
           <h5 class="card-title"><%= @car.brand.capitalize %> <%= @car.model.capitalize %></h5>
           <h6 class="card-subtitle mb-2 text-muted"> $ <%=  @car.price_per_day %> per day</h6>
           <p class="card-text"><%= @car.longdescription %></p>
-
+          <hr>
           <div class="d-flex justify-content-center">
+
           <% if @car.user == current_user %>
             <%= link_to "Edit this car", edit_car_path(@car), class: 'btn btn-info' %>
           <% else %>
