@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
   end
 
   def my_reservations
-    @bookings = policy_scope(Booking).where(user: current_user)
+    @bookings = policy_scope(Booking).where(car: current_user.cars)
 
     authorize @bookings
   end
