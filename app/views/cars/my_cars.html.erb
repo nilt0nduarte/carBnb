@@ -5,16 +5,21 @@
     <%= link_to 'Add a car', new_car_path, class: 'btn btn-primary' %>
   </div>
   <hr>
-  <% @cars.each do |car| %>
-    <div class="card-product rounded-4 mb-4">
 
+  <% @cars.each do |car| %>
+    <div class="card-product rounded-4 mb-3">
       <img src="<%=cl_image_path car.photos.first.key %>" >
         <div class="card-product-infos">
-          <div class="card-product-content-info">
+          <div class="card-product-content-info" style="width: 70%">
             <h2><%= "#{car.brand.capitalize} #{car.model.capitalize}" %></h2>
             <p><%= car.description %></p>
+            <p><%= car.longdescription %></p>
+            <p><strong>$</strong> <%= car.price_per_day %> / per day</p>
           </div>
+
+          <div>
             <%= link_to 'Edit', edit_car_path(car), class: 'btn btn-primary' %>
+          </div>
         </div>
     </div>
   <% end %>
