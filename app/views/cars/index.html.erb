@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <div class="cards">
-    <% @cars.each do |car| %>
+    <% @cars.shuffle.each do |car| %>
        <%= link_to car , class: 'hover' do %>
         <div class="card-trip">
-            <img src="<%= cl_image_path car.photos.first.key %>" />
+            <img src="<%= cl_image_path car.photos.first.key %>" class="card-image"/>
           <div class="card-trip-infos">
             <div>
               <h2><%= car.year %> <%= car.brand.capitalize %> <%= car.model.capitalize %></h2>

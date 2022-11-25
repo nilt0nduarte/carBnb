@@ -12,7 +12,9 @@
 
 .cards a:hover {
   text-decoration: none;
+  transform: translate(-2px, -2px);
 }
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
