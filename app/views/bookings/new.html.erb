@@ -3,16 +3,18 @@
   <div class="row justify-content-center">
       <div class="col-12 col-sm-6 col-md-8">
         <h1><%= @car.brand %> <%= @car.model %></h1>
-          Price: $ <span id='price'><%= @car.price_per_day %></span><br/>
-        <%= simple_form_for [@car, @booking] do |f| %>
-                  <%= f.input :start_date, as: :date,
-                                           html5: true %>
-                  <%= f.input :end_date, as: :date,
-                                         html5: true %>
-                <button onclick="calc()">Calculate</button><br/>
-                Total Value <span id='value'></span>
-            <%= f.submit  class: 'btn btn-success' %>
-        <% end %>
+          <h3>Price: $ <span id='price'><%= @car.price_per_day %></span></h3>
+          <%= simple_form_for [@car, @booking] do |f| %>
+                    <%= f.input :start_date, as: :date,
+                                            html5: true %>
+                    <%= f.input :end_date, as: :date,
+                                          html5: true %>
+              <%= f.submit  class: 'btn btn-outline-secondary' %>
+          <% end %>
+            <div class="d-flex justify-content-between mt-3">
+              <h3 class='pb-1'>Total: $ <span id='value'></span></h3>
+              <button onclick="calc()" class='btn btn-outline-success mb-2'>Calculate</button>
+            </div>
       </div>
   </div>
 </div>
