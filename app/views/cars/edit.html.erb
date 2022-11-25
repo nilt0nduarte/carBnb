@@ -13,10 +13,10 @@
                             input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                             wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
       <%#= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.button :submit, class: 'btn btn-primary' %>
+      <%= f.button :submit, class: 'btn btn-outline-secondary' %>
     <% end %>
-
-    <%= button_to "Delete this car", @car, method: :delete if policy(@car).destroy? %>
+    <hr>
+    <%= button_to "Delete this car", @car, class: 'btn btn-outline-danger', method: :delete if policy(@car).destroy? %>
     </div>
   </div>
 </div>
