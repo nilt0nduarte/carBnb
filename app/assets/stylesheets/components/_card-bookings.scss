@@ -37,8 +37,15 @@
 
 .card-product a {
   display: inline-block;
-  background-color: #2736d7;
-  color: #FFFFFF;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.card-booking-infos a {
+  display: inline-block;
   padding: 6px 12px;
   text-align: center;
   text-decoration: none;

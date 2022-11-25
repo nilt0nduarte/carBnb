@@ -55,9 +55,9 @@
           <div class="d-flex justify-content-center">
 
           <% if @car.user == current_user %>
-            <%= link_to "Edit this car", edit_car_path(@car), class: 'btn btn-info' %>
+            <%= link_to "Edit this car", edit_car_path(@car), class: 'btn btn-outline-info' %>
           <% else %>
-            <%= link_to "Rent this car", new_car_booking_path(@car), class: "btn btn-primary rounded-4" %>
+            <%= link_to "Rent this car", new_car_booking_path(@car), class: "btn btn-outline-secondary" %>
           <% end %>
 
           </div>
